@@ -1,18 +1,31 @@
-spring.application.name=ORDER-SERVICE
-server.port=8083
+spring:
+  application:
+    name: ORDER-SERVICE
 
-spring.datasource.url=jdbc:mysql://localhost:3306/assignment
+  datasource:
+    url: jdbc:mysql://localhost:3306/assignment
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
-spring.datasource.username=root
-spring.datasource.password=root
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
+server:
+  port: 8083
 
-eureka.client.service-url.defaultZone=http://localhost:8761/eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
 
-resilience4j.circuitbreaker.instances.productService.failure-rate-threshold=50
-resilience4j.circuitbreaker.instances.productService.minimum-number-of-calls=5
-resilience4j.circuitbreaker.instances.productService.wait-duration-in-open-state=10s
-resilience4j.circuitbreaker.instances.productService.sliding-window-size=10
+resilience4j:
+  circuitbreaker:
+    instances:
+      productService:
+        failure-rate-threshold: 50
+        minimum-number-of-calls: 5
+        wait-duration-in-open-state: 10s
+        sliding-window-size: 10
